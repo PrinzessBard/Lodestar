@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#201E28"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Lodestar"
+        android:layout_marginTop="150sp"
+        android:textSize="40sp"
+        android:textColor="#fdfdfd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/maps"
+        android:layout_width="150sp"
+        android:layout_height="60sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40sp"
+        android:text="Maps"
+        android:textSize="20dp"
+        android:backgroundTint="#e2a600"
+        />
+
+    <Button
+        android:id="@+id/building"
+        android:layout_width="150sp"
+        android:layout_height="60sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20sp"
+        android:text="Building"
+        android:textSize="20dp"
+        android:backgroundTint="#0000FF"
+        />
+
+</LinearLayout>

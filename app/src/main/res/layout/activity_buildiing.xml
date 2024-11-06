@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#e2a600"
+    tools:context=".BuildiingActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textColor="#fdfdfd"
+        android:layout_gravity="center"
+        android:layout_marginTop="110dp"
+        android:text="Укажите данные" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="#fdfdfd"
+        android:hint="Введите адрес..."
+        android:textColorHint="#6a6a6a"  />
+
+    <EditText
+        android:id="@+id/startRoom"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="#fdfdfd"
+        android:textColorHint="#6a6a6a"
+        android:hint="Начальное помещение..." />
+
+    <EditText
+        android:id="@+id/startRoomLevel"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="#fdfdfd"
+        android:hint="Этаж..."
+        android:textColorHint="#6a6a6a"  />
+
+    <EditText
+        android:id="@+id/endRoom"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="#fdfdfd"
+        android:hint="Конечное помещение..."
+        android:textColorHint="#6a6a6a"  />
+
+    <EditText
+        android:id="@+id/endRoomLevel"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="#fdfdfd"
+        android:hint="Этаж..."
+        android:textColorHint="#6a6a6a"  />
+
+    <EditText
+        android:id="@+id/isUp"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="#fdfdfd"
+        android:hint="Лестница или лифт..."
+        android:textColorHint="#6a6a6a"  />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#201E28"
+        android:textColor="#fdfdfd"
+        android:text="Отправить"/>
+
+    <TextView
+        android:id="@+id/link_to_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:textColor="#fdfdfd"
+        android:textSize="18dp"
+        android:text="На главную"/>
+
+</LinearLayout>
