@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         val maps = findViewById<Button>(R.id.maps)
         val building = findViewById<Button>(R.id.building)
+        val ni = findViewById<Button>(R.id.ni)
 
         maps.setOnClickListener {
             val url = "https://www.google.ru/maps"
@@ -24,6 +25,11 @@ class MainActivity : AppCompatActivity() {
 
         building.setOnClickListener {
             val intent = Intent(this, BuildiingActivity::class.java)
+            startActivity(intent)
+        }
+
+        ni.setOnClickListener {
+            val intent = Intent(this, NextActivity::class.java)
             startActivity(intent)
         }
     }

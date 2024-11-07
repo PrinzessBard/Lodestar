@@ -23,6 +23,7 @@ class BuildiingActivity: AppCompatActivity() {
     private lateinit var endRoomLevel: EditText;
     private lateinit var isUp: EditText;
     private lateinit var submitButton: Button;
+    private lateinit var buttonQr: Button;
     private lateinit var goToMain: TextView;
     private lateinit var networkService: NetworkService
 
@@ -38,10 +39,21 @@ class BuildiingActivity: AppCompatActivity() {
         isUp = findViewById(R.id.isUp)
         goToMain = findViewById(R.id.link_to_main)
         submitButton = findViewById(R.id.button)
+        buttonQr = findViewById(R.id.button_qr)
+
+        goToMain.setOnClickListener {
+            var intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        buttonQr.setOnClickListener {
+            val intent = Intent(this, CameraActivity::class.java)
+            startActivityForResult(intent, REQUEST_CODE_CAMERA)
+        }
 
         // Настройка Retrofit
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:5000/upload/")  // Локальный сервер на эмуляторе Android
+            .baseUrl("http://95.107.48.233:34560/upload/")  // Локальный сервер на эмуляторе Android
             .addConverterFactory(GsonConverterFactory.create())
             .client(OkHttpClient())
             .build()
@@ -52,6 +64,23 @@ class BuildiingActivity: AppCompatActivity() {
         submitButton.setOnClickListener {
             val data = collectFormData()
             sendDataToServer(data)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_CAMERA && resultCode == RESULT_OK) {
+            val qrData = data?.getStringExtra("QR_RESULT") ?: ""
+            val arr = qrData.split("\n")
+            startRoom.setText(arr[1])
+            address.setText(arr[0])
+            startRoomLevel.setText(arr[2])
+            isUp.setText(arr[3])
+//            startRoom.setText(qrData)
+//            val parts = qrData.split(",")
+//            if (parts.size >= 2) {
+//                address.setText(parts[0])
+//            }
         }
     }
 
@@ -73,8 +102,8 @@ class BuildiingActivity: AppCompatActivity() {
             override fun onResponse(call: Call<ServerResponse>, response: Response<ServerResponse>) {
                 if (response.isSuccessful && response.body() != null) {
 //                    val photoUrl = response.body()!!.photoUrl
-                    val photoUrl = "http://10.0.2.2:5000/photo1"
-                    openImageDisplayActivity(photoUrl)
+//                    val photoUrl = "http://95.107.48.233:34560/photo1"
+                    openImageDisplayActivity()
                 } else {
                     Toast.makeText(this@BuildiingActivity, "Ошибка сервера", Toast.LENGTH_SHORT).show()
                 }
@@ -87,9 +116,13 @@ class BuildiingActivity: AppCompatActivity() {
     }
 
     // Переход к com.example.lodestar.ImageDisplayActivity с передачей URL фотографии
-    private fun openImageDisplayActivity(photoUrl: String) {
+    private fun openImageDisplayActivity() {
         val intent = Intent(this, ImageDisplayActivity::class.java)
-        intent.putExtra("PHOTO_URL", photoUrl)
+        intent.putExtra("LEVEL", address.text.toString())
         startActivity(intent)
+    }
+
+    companion object {
+        private const val REQUEST_CODE_CAMERA = 123
     }
 }

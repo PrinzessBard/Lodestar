@@ -9,12 +9,20 @@
     android:background="#201E28"
     tools:context=".MainActivity">
 
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        app:srcCompat="@drawable/logo" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Lodestar"
-        android:layout_marginTop="150sp"
+        android:layout_marginTop="15sp"
         android:textSize="40sp"
         android:textColor="#fdfdfd"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,10 +36,9 @@
         android:layout_height="60sp"
         android:layout_gravity="center"
         android:layout_marginTop="40sp"
+        android:backgroundTint="#E2A600"
         android:text="Maps"
-        android:textSize="20dp"
-        android:backgroundTint="#e2a600"
-        />
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/building"
@@ -39,9 +46,18 @@
         android:layout_height="60sp"
         android:layout_gravity="center"
         android:layout_marginTop="20sp"
-        android:text="Building"
-        android:textSize="20dp"
         android:backgroundTint="#0000FF"
-        />
+        android:text="Building"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/ni"
+        android:layout_width="150sp"
+        android:layout_height="60sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20sp"
+        android:backgroundTint="#FF0000"
+        android:text="NI"
+        android:textSize="20dp" />
 
 </LinearLayout>
